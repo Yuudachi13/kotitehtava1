@@ -4,47 +4,41 @@
 
 using namespace std;
 
-
-   void rngpeli (int alaraja, int ylaraja){
-   int oikeaLuku = rand()%(ylaraja - alaraja + 1) + alaraja;
-   int arvaus;
-   int yritykset = 0;
-   cout << "Arvaa numero 0-20 valilta" << endl;
-   do {
-           // Kysytaan pelaajan arvaus
-           cout << "Anna arvauksesi: ";
-           cin >> arvaus;
-
-           yritykset++; //lasketaan yritykset
-
-           // Tarkistetaan arvaus
-           if (arvaus < alaraja || arvaus > ylaraja) {
-               cout << "Arvauksesi ei ole annetulla valilla." << endl;
-           } else if (arvaus < oikeaLuku) {
-               cout << "Koitappa isompaa." << endl;
-           } else if (arvaus > oikeaLuku) {
-               cout << "Koitappa pienempaa." << endl;
-           } else {
-               cout << "Okein meni. Luku oli " << oikeaLuku << "." << endl;
-               cout <<"Tarvitsit " << yritykset << " yritysta." << endl;
-           }
-       } while (arvaus != oikeaLuku);
-
-
-
-
-
+int ArvoSatunnainenLuku(int maxnum) {
+    return rand() % maxnum + 1;
 }
-   int main()
-   {
-      cout <<  "RANDMAX = " << RAND_MAX <<endl;
-      cout << "Time = " << time(0) <<endl;
-      srand(time(0)); //alustetaan numgen
-      int alaraja = 0;
-      int ylaraja = 20;
 
-      rngpeli (alaraja, ylaraja);    //randompelin kutsuminen
+int game() {
+    srand(time(0));
+    int maxnum;
+    cout << "Syota korkein arvattava luku: ";
+    cin >> maxnum;
+    int oikeaLuku = ArvoSatunnainenLuku(maxnum);
+    int arvaus;
+    int arvaustenMaara = 0;
 
+    do {
+        cout << "Anna arvauksesi (1 - " << maxnum << "): ";
+        cin >> arvaus;
+        arvaustenMaara++;
 
-      return 0;
-   }
+        if (arvaus < 1 || arvaus > maxnum) {
+            cout << "Arvauksesi ei ole annetulla välillä." << endl;
+        } else if (arvaus < oikeaLuku) {
+            cout << "Koitappa isompaa." << endl;
+        } else if (arvaus > oikeaLuku) {
+            cout << "Koitappa pienempaa." << endl;
+        } else {
+            cout << "Oikein meni. Luku oli " << oikeaLuku << "." << endl;
+        }
+    } while (arvaus != oikeaLuku);
+
+    return arvaustenMaara;
+}
+
+int main() {
+    int arvaustenMaara = game();
+    cout << "Arvasit oikein " << arvaustenMaara << " yrityksella." << endl;
+
+    return 0;
+}

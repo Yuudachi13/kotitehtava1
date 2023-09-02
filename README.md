@@ -8,3 +8,9 @@ Kysytään pelaajalta arvaus
 Tarkistetaan onko arvaus pienempi, suurempi tai yhtäsuuri kuin luku
 Kerrotaan tarkistuksen tulos tyyliin ”luku on pienempi/suurempi” tai ”oikea vastaus”
 Jos pelaajan vastaus ei ollut oikein, niin palataan kohtaan 2.
+Tee tehtävän 1 ohjelma oman funktion sisälle niin, että sitä kutsutaan main-funktiosta.
+
+Muuta toteuttamaasi funktiota siten, että funktiolle annetaan parametriksi korkein etsittävä luku, josta funktio arpoo satunnaisluvun. Esimerkiksi, jos tämä luku on 40, niin funktio arpoo luvun väliltä 1-40. Laske myös montako arvausta pelaajalla meni ja palauta tämä tieto funktiosta paluuarvona. Pelin loputtua tulosta arvausten määrä ruudulle main funktiosta paluuarvoa hyödyntäen. Käytä funktion nimenä ja prototyyppinä: int game(int maxnum);
+
+
+Tehtävässä jo tehtynä osa tehtävää 3.
